@@ -1,7 +1,7 @@
 Android Wear Dark Side of the Moon watch face
 =============================================
 
-This is my first watch face. It is a digital watch with a Dark Side if the Moon theme.
+This is my first watch face. It is a digital watch with a Dark Side of the Moon theme.
 
 It also displays the current Unix time stamp in seconds. The watch face has 4 complication placements.
 
