@@ -35,7 +35,7 @@ import java.util.concurrent.Executors;
 
 /**
  * The watch-side config activity for {@link DarkSideWatchFaceService}, which allows for setting
- * the left and right complications of watch face.
+ * the upper left, lower left, upper right, and lower right complications of watch face.
  */
 public class ComplicationConfigActivity extends Activity implements View.OnClickListener {
 
@@ -158,7 +158,6 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         // TODO: Step 3, release
         mProviderInfoRetriever.release();
     }
@@ -189,7 +188,6 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
         if (view.equals(mUpperLeftComplication)) {
             Log.d(TAG, "Upper Left Complication click()");
             launchComplicationHelperActivity(ComplicationLocation.UPPER_LEFT);
-
         } else if (view.equals(mUpperRightComplication)) {
             Log.d(TAG, "Upper Right Complication click()");
             launchComplicationHelperActivity(ComplicationLocation.UPPER_RIGHT);
@@ -238,12 +236,10 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
             if (complicationProviderInfo != null) {
                 mUpperLeftComplication.setImageIcon(complicationProviderInfo.providerIcon);
                 mUpperLeftComplicationBackground.setVisibility(View.VISIBLE);
-
             } else {
                 mUpperLeftComplication.setImageDrawable(mDefaultAddComplicationDrawable);
                 mUpperLeftComplicationBackground.setVisibility(View.INVISIBLE);
             }
-
         } else if (watchFaceComplicationId == mUpperRightComplicationId) {
             if (complicationProviderInfo != null) {
                 mUpperRightComplication.setImageIcon(complicationProviderInfo.providerIcon);

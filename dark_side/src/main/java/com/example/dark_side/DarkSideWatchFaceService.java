@@ -34,19 +34,13 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Digital watch face with seconds. In ambient mode, the seconds aren't displayed. On devices with
+ * Digital watch face with a Dark Side of the Moon theme. On devices with
  * low-bit ambient mode, the text is drawn without anti-aliasing in ambient mode.
  * <p>
- * Important Note: Because watch face apps do not have a default Activity in
- * their project, you will need to set your Configurations to
- * "Do not launch Activity" for both the Wear and/or Application modules. If you
- * are unsure how to do this, please review the "Run Starter project" section
- * in the Google Watch Face Code Lab:
- * https://codelabs.developers.google.com/codelabs/watchface/index.html#0
  */
 public class DarkSideWatchFaceService extends CanvasWatchFaceService {
-    private static final Typeface NORMAL_TYPEFACE =
-            Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL);
+    private static final Typeface BOLD_TYPEFACE =
+            Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
 
     private static final String TAG = "DarkSideWatchFace";
 
@@ -68,9 +62,14 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
     private static final int LOWER_LEFT_COMPLICATION_ID = 2;
     private static final int LOWER_RIGHT_COMPLICATION_ID = 3;
 
-    private static final int[] COMPLICATION_IDS = {UPPER_LEFT_COMPLICATION_ID, UPPER_RIGHT_COMPLICATION_ID, LOWER_LEFT_COMPLICATION_ID, LOWER_RIGHT_COMPLICATION_ID};
+    private static final int[] COMPLICATION_IDS = {
+            UPPER_LEFT_COMPLICATION_ID,
+            UPPER_RIGHT_COMPLICATION_ID,
+            LOWER_LEFT_COMPLICATION_ID,
+            LOWER_RIGHT_COMPLICATION_ID
+    };
 
-    // Left and right dial supported types.
+    // Left and right complication supported types.
     private static final int[][] COMPLICATION_SUPPORTED_TYPES = {
             {
                     ComplicationData.TYPE_RANGED_VALUE,
@@ -98,11 +97,10 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
             }
     };
 
-    // Used by {@link ComplicationConfigActivity} to retrieve id for complication locations and
-    // to check if complication location is supported.
+    /** Used by {@link ComplicationConfigActivity} to retrieve id for complication locations and
+     * to check if complication location is supported. */
     // TODO: Step 3, expose complication information, part 1
-    static int getComplicationId(
-            ComplicationConfigActivity.ComplicationLocation complicationLocation) {
+    static int getComplicationId(ComplicationConfigActivity.ComplicationLocation complicationLocation) {
         switch (complicationLocation) {
             case UPPER_LEFT:
                 return UPPER_LEFT_COMPLICATION_ID;
@@ -117,14 +115,13 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
         }
     }
 
-    // Used by {@link ComplicationConfigActivity} to retrieve all complication ids.
+    /** Used by {@link ComplicationConfigActivity} to retrieve all complication ids. */
     // TODO: Step 3, expose complication information, part 2
     static int[] getComplicationIds() {
         return COMPLICATION_IDS;
     }
 
-    // Used by {@link ComplicationConfigActivity} to retrieve complication types supported by
-    // location.
+    /** Used by {@link ComplicationConfigActivity} to retrieve complication types supported by location. */
     // TODO: Step 3, expose complication information, part 3
     static int[] getSupportedComplicationTypes(
             ComplicationConfigActivity.ComplicationLocation complicationLocation) {
@@ -180,7 +177,7 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
         };
         private Bitmap mBackgroundBitmap;
         private boolean mRegisteredTimeZoneReceiver = false;
-        private float mXOffset;
+        /*private float mXOffset;*/
         private float mYOffset;
         private float mTSYOffset;
         private float mDayYOffset;
@@ -196,14 +193,14 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
          * disable anti-aliasing in ambient mode.
          */
         private boolean mLowBitAmbient;
-        private boolean mBurnInProtection;
+        /*private boolean mBurnInProtection;*/
         private boolean mAmbient;
 
 
         private int mWidth;
-        private int mHeight;
+        /*private int mHeight;*/
         private float mCenterX;
-        private float mCenterY;
+        /*private float mCenterY;*/
         private float mScale = 1;
 
 
@@ -239,40 +236,38 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
             mBackgroundPaint.setColor(
                     ContextCompat.getColor(getApplicationContext(), R.color.background));
 
-
             mBackgroundBitmap = BitmapFactory
                     .decodeResource(getResources(), R.drawable.custom_background);
 
             // Initializes Watch Face.
             mTextPaint = new Paint();
-            mTextPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD));
+            mTextPaint.setTypeface(BOLD_TYPEFACE);
             mTextPaint.setAntiAlias(true);
             mTextPaint.setColor(
                     ContextCompat.getColor(getApplicationContext(), R.color.digital_text));
             mTextPaint.setTextAlign(Paint.Align.CENTER);
 
             mTSPaint = new Paint();
-            mTSPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD));
+            mTSPaint.setTypeface(BOLD_TYPEFACE);
             mTSPaint.setAntiAlias(true);
             mTSPaint.setColor(
                     ContextCompat.getColor(getApplicationContext(), R.color.digital_text));
             mTSPaint.setTextAlign(Paint.Align.CENTER);
 
             mDayPaint = new Paint();
-            mDayPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD));
+            mDayPaint.setTypeface(BOLD_TYPEFACE);
             mDayPaint.setAntiAlias(true);
             mDayPaint.setColor(
                     ContextCompat.getColor(getApplicationContext(), R.color.digital_text));
             mDayPaint.setTextAlign(Paint.Align.CENTER);
 
             mDatePaint = new Paint();
-            mDatePaint.setTypeface(Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD));
+            mDatePaint.setTypeface(BOLD_TYPEFACE);
             mDatePaint.setAntiAlias(true);
             mDatePaint.setColor(
                     ContextCompat.getColor(getApplicationContext(), R.color.digital_text));
             mDatePaint.setTextAlign(Paint.Align.CENTER);
 
-            // TODO: Step 2, intro 3
             initializeComplications();
         }
 
@@ -356,7 +351,7 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
             // Load resources that have alternate values for round watches.
             Resources resources = DarkSideWatchFaceService.this.getResources();
 
-            mXOffset = resources.getDimension(R.dimen.digital_time_x_offset);
+            /*mXOffset = resources.getDimension(R.dimen.digital_time_x_offset);*/
             mTextPaint.setTextSize(resources.getDimension(R.dimen.digital_time_size));
             mTSPaint.setTextSize(resources.getDimension(R.dimen.digital_ts_size));
             mDayPaint.setTextSize(resources.getDimension(R.dimen.digital_day_size));
@@ -367,7 +362,7 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
         public void onPropertiesChanged(Bundle properties) {
             super.onPropertiesChanged(properties);
             mLowBitAmbient = properties.getBoolean(PROPERTY_LOW_BIT_AMBIENT, false);
-            mBurnInProtection = properties.getBoolean(PROPERTY_BURN_IN_PROTECTION, false);
+            /*mBurnInProtection = properties.getBoolean(PROPERTY_BURN_IN_PROTECTION, false);*/
         }
 
         @Override
@@ -400,8 +395,7 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
 
         // TODO: Step 2, onComplicationDataUpdate()
         @Override
-        public void onComplicationDataUpdate(
-                int complicationId, ComplicationData complicationData) {
+        public void onComplicationDataUpdate(int complicationId, ComplicationData complicationData) {
             Log.d(TAG, "onComplicationDataUpdate() id: " + complicationId);
 
             // Adds/updates active complication data in the array.
@@ -414,8 +408,6 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
 
             invalidate();
         }
-
-
 
         @Override
         public void onTapCommand(int tapType, int x, int y, long eventTime) {
@@ -439,8 +431,8 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
 
             long currentTimeMillis = System.currentTimeMillis();
 
-            for (int i = 0; i < COMPLICATION_IDS.length; i++) {
-                complicationId = COMPLICATION_IDS[i];
+            for (int COMPLICATION_ID : COMPLICATION_IDS) {
+                complicationId = COMPLICATION_ID;
                 complicationData = mActiveComplicationDataSparseArray.get(complicationId);
 
                 if ((complicationData != null)
@@ -504,7 +496,7 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             super.onSurfaceChanged(holder, format, width, height);
             mWidth = width;
-            mHeight = height;
+            /* mHeight = height; */
             /*
              * Find the coordinates of the center point on the screen.
              * Ignore the window insets so that, on round watches
@@ -512,7 +504,7 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
              * not just the usable portion.
              */
             mCenterX = mWidth / 2f;
-            mCenterY = mHeight / 2f;
+            /*mCenterY = mHeight / 2f;*/
 
             mScale = ((float) width) / (float) mBackgroundBitmap.getWidth();
 
@@ -615,8 +607,8 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
             int complicationId;
             ComplicationDrawable complicationDrawable;
 
-            for (int i = 0; i < COMPLICATION_IDS.length; i++) {
-                complicationId = COMPLICATION_IDS[i];
+            for (int COMPLICATION_ID : COMPLICATION_IDS) {
+                complicationId = COMPLICATION_ID;
                 complicationDrawable = mComplicationDrawableSparseArray.get(complicationId);
 
                 complicationDrawable.draw(canvas, currentTimeMillis);
