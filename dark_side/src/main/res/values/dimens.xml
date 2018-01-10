@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="digital_time_size">25dp</dimen>
+    <dimen name="digital_time_x_offset">15dp</dimen>
+    <dimen name="digital_time_y_offset">55dp</dimen>
+    <dimen name="digital_ts_size">15dp</dimen>
+    <dimen name="digital_ts_y_offset">30dp</dimen>
+    <dimen name="digital_day_size">15dp</dimen>
+    <dimen name="digital_day_y_offset">170dp</dimen>
+    <dimen name="digital_date_size">20dp</dimen>
+    <dimen name="digital_date_y_offset">200dp</dimen>
+    <dimen name="settings_preview_size">400dp</dimen>
+</resources>
