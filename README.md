@@ -1,57 +1,24 @@
-Android Wear watch face codelab
-===============================
+Android Wear Dark Side of the Moon watch face
+=============================================
 
-In this codelab you'll learn how to create an analog watch face
-and customize it to our needs, keeping best practices for the platform in mind.
+This is my first watch face. It is a digital watch with a Dark Side if the Moon theme.
 
-This is the code part of the watch face codelab.
-The code lab consists of 5 steps.
+It also displays the current Unix time stamp in seconds. The watch face has 4 complication placements.
 
-A [site](https://watchface-codelab.appspot.com) to guide you through
-the code lab is available.
-
-To get started open the site and follow the instructions.
-
-Pre-requisites
---------------
-
-- Android SDK v23
-- Android Build Tools v23.3.0
-- Android Support Repository
-
-Getting Started
----------------
-
-This code lab uses the Gradle build system. To build this project, use the
-"./gradlew build" command or use "Import Project" in Android Studio.
-
-Support
--------
-
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/android)
-
-If you've found an error in this code lab, please file
-an [issue](https://github.com/googlesamples/android-codelab-watchface)
-
-Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIB.md for more details.
+It was built off of the Google watch face code lab found [here](https://codelabs.developers.google.com/codelabs/watchface/index.html#0).
+I also used the Google complications code lab found [here](https://codelabs.developers.google.com/codelabs/complications/index.html?index=..%2F..%2Findex#0) for the complications.
 
 License
 -------
 
-Copyright 2016 The Android Open Source Project, Inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-Licensed to the Apache Software Foundation (ASF) under one or more contributor
-license agreements.  See the NOTICE file distributed with this work for
-additional information regarding copyright ownership.  The ASF licenses this
-file to you under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License.  You may obtain a copy of
-the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
-License for the specific language governing permissions and limitations under
-the License.
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
