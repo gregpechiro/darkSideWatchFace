@@ -44,9 +44,8 @@
         style="?android:borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/lower_left_complication_background"
+        android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/upper_left_complication_background"
-        android:layout_marginEnd="16dp"
         android:background="@android:color/transparent" />
 
     <ImageView
@@ -54,8 +53,8 @@
         style="?android:borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/lower_left_complication_background"
-        android:layout_alignStart="@+id/upper_right_complication"
+        android:layout_alignStart="@+id/lower_right_complication_background"
+        android:layout_alignTop="@+id/upper_left_complication_background"
         android:background="@android:color/transparent"
         android:src="@drawable/added_complication" />
 
@@ -64,9 +63,8 @@
         style="?android:borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/lower_right_complication_background"
+        android:layout_alignStart="@+id/upper_right_complication_background"
         android:layout_alignTop="@+id/upper_right_complication_background"
-        android:layout_marginStart="22dp"
         android:background="@android:color/transparent" />
 
     <ImageView
@@ -76,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/upper_left_complication_background"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="30dp"
         android:background="@android:color/transparent"
         android:src="@drawable/added_complication" />
 
@@ -95,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/lower_left_complication"
+        android:layout_alignTop="@+id/lower_left_complication_background"
         android:background="@android:color/transparent"
         android:src="@drawable/added_complication" />
 

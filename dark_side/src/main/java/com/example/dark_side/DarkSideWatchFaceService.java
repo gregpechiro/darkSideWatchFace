@@ -521,16 +521,16 @@ public class DarkSideWatchFaceService extends CanvasWatchFaceService {
                             (int)(mBackgroundBitmap.getHeight() * mScale), true);
 
             // TODO: Step 2, calculating ComplicationDrawable locations
-            int sizeOfComplication = width / 4;
+            int sizeOfComplication = (int)(width / 4.4);
             int midpointOfScreen = width / 2;
 
             int upperRightHorizontalOffset = ((midpointOfScreen - sizeOfComplication) / 2) + (sizeOfComplication / 3);
             int upperLeftHorizontalOffset = ((midpointOfScreen - sizeOfComplication) / 2) - (sizeOfComplication / 3);
-            int upperVerticalOffset = (midpointOfScreen - sizeOfComplication) - (sizeOfComplication / 10);
+            int upperVerticalOffset = (midpointOfScreen - sizeOfComplication) - (sizeOfComplication / 7);
 
-            int lowerRightHorizontalOffset = ((midpointOfScreen - sizeOfComplication) / 2) + (sizeOfComplication / 4);
-            int lowerLeftHorizontalOffset = ((midpointOfScreen - sizeOfComplication) / 2) - (sizeOfComplication / 4);
-            int lowerVerticalOffset = (midpointOfScreen + (sizeOfComplication / 4)) /*- (sizeOfComplication / 5)*/;
+            int lowerRightHorizontalOffset = ((midpointOfScreen - sizeOfComplication) / 2) + (sizeOfComplication / 3);
+            int lowerLeftHorizontalOffset = ((midpointOfScreen - sizeOfComplication) / 2) - (sizeOfComplication / 3);
+            int lowerVerticalOffset = (midpointOfScreen) + (sizeOfComplication / 3);
 
 
             Rect upperLeftBounds =
